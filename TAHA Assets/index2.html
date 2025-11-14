@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TAHA Floors | Flooring Solutions</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <style>
+        /* Color Palette Based on Your Profile */
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --accent: #ebd917;
+    --light-bg: #f7f7f7;
+}
+
+/* General */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--black);
+    background: var(--white);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Header */
+.header {
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.logo img {
+    height: 46px;
+    width: auto;
+    display: block;
+}
+
+.logo .black-text,
+.logo .gold-text {
+    font-size: 24px;
+    line-height: 1;
+}
+
+.nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--black);
+}
+
+.nav a:hover {
+    color: var(--accent);
+}
+
+/* Hero */
+.hero {
+    height: 45vh;
+    background: #e1dfdd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 40px;
+}
+
+.hero-text p {
+    margin-top: 10px;
+}
+
+/* Sections */
+.section {
+    padding: 60px 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.alt-section {
+    background: var(--light-bg);
+    text-align: center;
+}
+
+/* Two-column layout */
+.two-column {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* Services Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 10px;
+    background: var(--white);
+}
+
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #ddd;
+    border-radius: 10px;
+}
+
+/* Quality List */
+.quality-list {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.quality-list li {
+    padding: 8px 0;
+    text-align: center;
+}
+
+/* Contact buttons */
+.contact-buttons {
+    margin: 20px 0;
+}
+
+.btn {
+    background: var(--accent);
+    color: var(--white);
+    padding: 12px 20px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.btn:hover {
+    background: #d3c200;
+}
+
+.address {
+    margin-top: 15px;
+    opacity: 0.7;
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+}
+
+.black-text {
+    color: #000000;
+}
+
+.gold-text {
+    color: #ebd917;
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.3s ease-in;
+}
+
+.lightbox.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.lightbox-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.lightbox-close:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.gallery-item {
+    cursor: pointer;
+}
+
+.gallery-item img:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .hero-text h1 {
+        font-size: 28px;
+    }
+    
+    .lightbox-close {
+        top: 10px;
+        right: 10px;
+        font-size: 30px;
+        padding: 5px 15px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Sticky Header -->
+    <header class="header">
+        <div class="logo"><img src="/images/9.jpeg" alt="TAHA FLOOR"><span class="black-text">TAHA</span> <span class="gold-text">FLOOR</span></div>
+        <nav class="nav">
+            <a href="#overview">Overview</a>
+            <a href="#mission">Mission & Vision</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#quality">Quality</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section (Optional Image) -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Strong Floors, Lasting Impressions</h1>
+            <p>Durable • Seamless • Modern Flooring Solutions</p>
+        </div>
+    </section>
+
+    <!-- Company Overview -->
+    <section id="overview" class="section">
+        <h2><span class="black-text">Company</span> <span class="gold-text">Overview</span></h2>
+        <p>
+            Taha Floor (Pty) Ltd <strong><em>(2017/516535/07)</em></strong> is a specialist flooring company offering high-quality,
+            durable, and stylish floor finishes for residential, commercial, and 
+            industrial environments. Skilled professionals use advanced techniques 
+            and high-grade materials to ensure long-lasting, seamless floors.
+        </p>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section id="mission" class="section alt-section">
+        <h2><span class="black-text">Mission</span> <span class="gold-text">& Vision</span></h2>
+        <div class="two-column">
+            <div>
+                <h3>Our Mission</h3>
+                <p>
+                    To create flooring systems that go beyond surface appeal — delivering 
+                    strength, safety, and style in every project. To use cutting-edge 
+                    solutions that meet the unique needs of clients.
+                </p>
+            </div>
+            <div>
+                <h3>Our Vision</h3>
+                <p>
+                    To become the most trusted and innovative flooring company in South 
+                    Africa and beyond, setting benchmarks in quality, reliability, and 
+                    customer satisfaction.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Comprehensive Offerings -->
+    <section id="services" class="section">
+        <h2><span class="black-text">Comprehensive</span> <span class="gold-text">Offerings</span></h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Epoxy Flooring</h3>
+                <p>Seamless, chemical-resistant, and durable for homes, showrooms, factories, and garages.</p>
+            </div>
+            <div class="card">
+                <h3>Cementitious & Self-Leveling Screeds</h3>
+                <p>Perfectly smooth bases for tiles, vinyl, and carpets.</p>
+            </div>
+            <div class="card">
+                <h3>Polyurethane Flooring</h3>
+                <p>Highly abrasion-resistant and flexible for high-traffic areas.</p>
+            </div>
+            <div class="card">
+                <h3>Decorative Coatings</h3>
+                <p>Stylish metallic epoxy, polished concrete, and other decorative finishes.</p>
+            </div>
+            <div class="card">
+                <h3>Floor Preparation & Repair</h3>
+                <p>Grinding, crack repairs, and moisture control for strong foundations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section id="projects" class="section alt-section">
+        <h2><span class="black-text">Featured</span> <span class="gold-text">Projects</span></h2>
+        <p>Upload your project images later. These are placeholders.</p>
+
+        <div class="gallery">
+            <div class="gallery-item" onclick="openLightbox('/images/1.jpeg')"><img src="/images/1.jpeg" alt="Project 1"></div>
+            <div class="gallery-item" onclick="openLightbox('/images/2.jpeg')"><img src="/images/2.jpeg" alt="Project 2"></div>
+            <div class="gallery-item" onclick="openLightbox('/images/3.jpeg')"><img src="/images/3.jpeg" alt="Project 3"></div>
+            <div class="gallery-item" onclick="openLightbox('/images/4.jpeg')"><img src="/images/4.jpeg" alt="Project 4"></div>
+            <div class="gallery-item" onclick="openLightbox('/images/5.jpeg')"><img src="/images/5.jpeg" alt="Project 5"></div>
+            <div class="gallery-item" onclick="openLightbox('/images/6.jpeg')"><img src="/images/6.jpeg" alt="Project 6"></div>
+            <div class="gallery-item" onclick="openLightbox('/images/7.jpeg')"><img src="/images/7.jpeg" alt="Project 7"></div>
+            <div class="gallery-item" onclick="openLightbox('/images/8.jpeg')"><img src="/images/8.jpeg" alt="Project 8"></div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <img id="lightbox-img" class="lightbox-img" src="" alt="Enlarged image">
+        </div>
+    </div>
+
+    <!-- Commitment to Quality -->
+    <section id="quality" class="section">
+        <h2><span class="black-text">Commitment</span> <span class="gold-text">to Quality</span></h2>
+        <ul class="quality-list">
+            <li><strong>Quality Craftsmanship:</strong> Executed with attention to detail.</li>
+            <li><strong>Durability Guaranteed:</strong> Floors built to last with minimal maintenance.</li>
+            <li><strong>Health & Safety Compliance:</strong> Slip-resistant, hygienic surfaces.</li>
+            <li><strong>Tailored Solutions:</strong> Customized for homes, offices, and industries.</li>
+            <li><strong>Eco-Friendly Options:</strong> Sustainable, low-VOC materials.</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section alt-section">
+        <h2><span class="black-text">Contact</span> <span class="gold-text">Us</span></h2>
+        <p>We welcome inquiries for new projects and collaborations.</p>
+
+        <div class="contact-buttons">
+            <a class="btn" href="https://wa.me/27695535703">WhatsApp</a>
+            <a class="btn" href="">Email Us</a>
+            <a class="btn" href="https://maps.app.goo.gl/pCbTPBxSYMyvBqEw5">Address</a>
+        </div>
+
+        <p class="address">
+            1844 Ebuhleni Street, Umthambeka Section, Tembisa
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 30px; background: #f7f7f7; color: #666; font-size: 14px; border-top: 1px solid #eee;">
+        <p>Created by THE PIXEL MEDIC® for...</p>
+        <p>Taha Floor (Pty) Ltd | (2025)</p>
+    </footer>
+    
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('.nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(event) {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
